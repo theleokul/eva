@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<script>
+
+	function makeRequest(value) {
+		console.log(value)
+		var request = "http://localhost:5000/api?path=" + value
+		var http = new XMLHttpRequest();
+		http.open('POST', request, true);
+		http.send();
+		console.log("Here we are 1");
+		
+		http.onreadystatechange = (e) => {
+			console.log("Here we are 2");
+			console.log(http)
+		}
+	}
+
+	function onClick() {
+	    // console.log(x);
+	    // makeRequest();
+	    // console.log("Request made");
+	};
+
+
+	const onChange = (event) => { 
+	    console.log(event.target.value); 
+		// var x=this.files[0]; console.log(x)
+	}; 
+
+
+
+</script>
+
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>EVA</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <header class="masthead bg-primary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+                <h1 class="masthead-heading text-uppercase mb-0">EVA</h1>
+                <br>
+                <br>
+                <br>
+                <h1 class="masthead-heading text-uppercase mb-0">EMOTIONS IN VIDEO ANALYZER</h1>
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <p class="masthead-subheading font-weight-light mb-0">New generation of parental control systems</p>
+            </div>
+        </header>
+        <section class="page-section">
+            <div class="container">
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0"></h2>
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-xl-7">
+                        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                            <div class="form-floating mb-3">
+                                <input class="form-control" type="text" onChange="makeRequest(this.value);"/>
+                                <label for="name">Choose video to process</video></label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="btn btn-primary btn-xl" type="button" name="process" value="Process" id="process" onclick="onClick()"/>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="btn btn-primary btn-xl" type="button" name="show" value="Show Result" />
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="page-section bg-primary text-white mb-0" id="about">
+            <div class="container">
+                <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <div class="row">
+                    <div class=" ms-auto"><p class="lead text-center">What is EVA?
+                        - EVA is a service that helps parents to know what categories of emotions a photo or a video contains. The user need to upload the image/video link and then click on hte process button. Our AI-based tool will analyze the content and give a score for each emotion depending on what the photo/video contains. Go and Give it try !</p></div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
